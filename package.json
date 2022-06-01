@@ -1,0 +1,56 @@
+{
+  "name": "dungeon-planner",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "author": "",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ""
+  },
+  "scripts": {
+    "watch": "nodemon src/index.ts",
+    "build": "npm-run-all clean tsc",
+    "clean": "rimraf dist",
+    "format": "PM_RUN prettier --write",
+    "lint": "eslint --ext js,jsx,ts,tsx .",
+    "nodemon": "nodemon --watch dist",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.{css,html,js,jsx,json,ts,tsx,md,mdx,yml,yaml}\"",
+    "start": "node dist/index.js",
+    "dev": "npm-run-all build --parallel tsc:watch nodemon",
+    "test": "npm-run-all lint test:format",
+    "test:format": "PM_RUN prettier --check",
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch"
+  },
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "source-map-support": "^0.5.16"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.1.1",
+    "@types/node": "^13.7.7",
+    "@typescript-eslint/eslint-plugin": "^2.22.0",
+    "@typescript-eslint/parser": "^2.22.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "nodemon": "^2.0.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "1.19.1",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.8.0",
+    "typescript": "~3.8.3"
+  },
+  "prettier": {
+    "trailingComma": "all"
+  },
+  "ava": {
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  }
+}
